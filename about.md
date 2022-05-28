@@ -21,7 +21,7 @@ Wobblin’ Goblin is a community where we run, study, change, and improve our em
 
 ## Our team
 * [Jeffi](/about/jeffi.html)
-* Underminus
+* [Underminus](/about/underminus.html)
 * Desumi
 
 ## Contact us
