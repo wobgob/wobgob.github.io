@@ -17,7 +17,7 @@ It's nice to meet you.
 * Open source and free forever (as in speech and beer)
 
 ## About us
-Wobblin’ Goblin is a community where we run, study, change, and improve our emulators together. You'll learn about programming, system administration, and databases amongst other things. While developing your emulator you get to play with others while you learn.
+Wobblin’ Goblin is a community where we play games and make fun things. If you're a developer you'll learn about programming, system administration, and databases amongst other things. While developing your emulator you get to play with others while you learn. We also need players to test the emulators the developers have made so there's a role for everyone.
 
 ## Our team
 * [Jeffi](/about/jeffi.html)
