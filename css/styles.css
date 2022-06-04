@@ -52,5 +52,9 @@ main > .quote {
 	font-family: 'Reem Kufi', sans-serif;
 	font-size: 3.75em;
 	font-weight: 600;
+}
+
+main > .buttons {
+	margin: 1.5rem 0;
   padding-bottom: 45px;
 }

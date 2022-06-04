@@ -78,12 +78,12 @@
 }
 
 .wrapper .github:hover {
-  color: #24292f;
+  color: #6c757d;
 }
 
 .wrapper .github:hover .tooltip,
 .wrapper .github:hover .tooltip::before {
-  background: #24292f;
+  background: #6c757d;
   color: #ffffff;
 }
 

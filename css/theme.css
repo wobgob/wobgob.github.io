@@ -1,8 +1,6 @@
 main {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url(/images/hero.jpg) no-repeat center center fixed;
-    background-size: cover;
     color: #FAFAFA;
+    background-color: #24292f;
 }
 
 .icons-social a {
@@ -11,12 +9,4 @@ main {
 
 .icons-social a svg path {
     fill: #FAFAFA;
-}
-
-a {
-    color: #FAFAFA;
-}
-
-a:hover {
-    color: #61912A;
 }
