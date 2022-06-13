@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Wobblin' Goblin</title>
+  <title>Wobblin' Goblin | Oceanic private server</title>
+  <meta name="description" content="Wobblin' Goblin is an Oceanic private server powered by AzerothCore.">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -16,8 +17,8 @@
   <meta name="msapplication-TileColor" content="#2e4514">
   <meta name="theme-color" content="#2e4514">
 
-  <link href="https://fonts.googleapis.com/css?family=Reem+Kufi|Roboto:300" rel="stylesheet">
-  <link href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Reem+Kufi|Roboto:300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css" integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/styles.css">
   <link rel="stylesheet" href="/css/buttons.css">
@@ -26,27 +27,57 @@
 </head>
 
 <body>
-  <main>
+  <header>
     <div id="quote" class="quote"></div>
+    <div class="tagline">Wobblin' Goblin is an Oceanic private server powered by <a target="_blank" href="https://www.azerothcore.org/">AzerothCore</a>.</div>
     <div class="buttons">
-      <a href="https://wobgob.org/getting-started/">
-        <button class="button get-started"><span><i class="fas fa-play"></i> Get Started </span></button>
+      <a href="https://discord.wobgob.org">
+        <button class="button get-started"><span><i class="fa fa-play"></i> Get Started</span></button>
+      </a>
+      <a href="#learn-more">
+        <button class="button learn-more"><span><i class="fa fa-info-circle"></i> Learn More</span></button>
       </a>
     </div>
     <ul class="wrapper">
-      <li class="icon discord">
-        <span class="tooltip">Discord</span>
-        <span><a target="_blank" href="https://discord.gg/rqq33HmMyX"><i class="fab fa-discord fa-3x"></i></a></span>
-      </li>
       <li class="icon github">
         <span class="tooltip">Github</span>
-        <span><a target="_blank" href="https://github.com/wobgob"><i class="fab fa-github-alt fa-3x"></i></a></span>
+        <span><a target="_blank" href="https://github.com/wobgob"><i class="fa fa-github-alt fa-3x"></i></a></span>
       </li>
-      <li class="icon twitter">
-        <span class="tooltip">Twitter</span>
-        <span><a target="_blank" href="https://twitter.com/wobgoborg"><i class="fab fa-twitter fa-3x"></i></a></span>
+      <li class="icon liberapay">
+        <span class="tooltip">Liberapay</span>
+        <span><a target="_blank" href="https://liberapay.com/jeffi/"><i class="fa fa-liberapay fa-3x"></i></a></span>
+      </li>
+      <li class="icon youtube">
+        <span class="tooltip">YouTube</span>
+        <span><a target="_blank" href="https://www.youtube.com/channel/UCOSWCDqfLuBrC8FSnhSckYA"><i class="fa fa-youtube-play fa-3x"></i></a></span>
       </li>
     </ul>
+  </header>
+  <main id="learn-more">
+    <div class="row">
+      <div class="column">
+        <h1>Scaling</h1>
+        <i class="icon fa fa-line-chart fa-5x" style="color:#6ac174"></i>
+        <p>Scaling allows flexibility with who you play with (or without).</p>
+      </div>
+      <div class="column">
+        <h1>Loot Boxes</h1>
+        <i class="icon fa fa-dropbox fa-5x" style="color:#8fbcd4"></i>
+        <p>I can't believe it's not gambling!</p>
+      </div>
+      <div class="column">
+        <h1>Love</h1>
+        <i class="icon fa fa-heart fa-5x" style="color:#c97a7e"></i>
+        <p>Is it really open source if it's not made with love?</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="buttons">
+        <a href="https://discord.wobgob.org">
+          <button class="button get-started"><span><i class="fa fa-play"></i> Get Started</span></button>
+        </a>
+      </div>
+    </div>
   </main>
   <script src="/js/index.js"></script>
 </body>

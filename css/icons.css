@@ -23,8 +23,8 @@
 .wrapper .tooltip {
   position: absolute;
   top: 0;
-  background: #ffffff;
-  color: #ffffff;
+  background: #fafafa;
+  color: #fafafa;
   padding: 5px 8px;
   border-radius: 5px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
@@ -38,7 +38,7 @@
   content: "";
   height: 8px;
   width: 8px;
-  background: #ffffff;
+  background: #fafafa;
   bottom: -3px;
   left: 50%;
   transform: translate(-50%) rotate(45deg);
@@ -57,24 +57,14 @@
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
 }
 
-.wrapper .discord:hover {
-  color: #5865f2;
+.wrapper .liberapay:hover {
+  color: #F6C915;
 }
 
-.wrapper .discord:hover .tooltip,
-.wrapper .discord:hover .tooltip::before {
-  background: #5865f2;
-  color: #ffffff;
-}
-
-.wrapper .twitter:hover {
-  color: #1DA1F2;
-}
-
-.wrapper .twitter:hover .tooltip,
-.wrapper .twitter:hover .tooltip::before {
-  background: #1DA1F2;
-  color: #ffffff;
+.wrapper .liberapay:hover .tooltip,
+.wrapper .liberapay:hover .tooltip::before {
+  background: #F6C915;
+  color: #fafafa;
 }
 
 .wrapper .github:hover {
@@ -84,7 +74,7 @@
 .wrapper .github:hover .tooltip,
 .wrapper .github:hover .tooltip::before {
   background: #6c757d;
-  color: #ffffff;
+  color: #fafafa;
 }
 
 .wrapper .youtube:hover {
@@ -94,5 +84,5 @@
 .wrapper .youtube:hover .tooltip,
 .wrapper .youtube:hover .tooltip::before {
   background: #CD201F;
-  color: #ffffff;
+  color: #fafafa;
 }
