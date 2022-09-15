@@ -105,7 +105,7 @@ main .row {
 
 main h1 {
   font-family: 'Reem Kufi', sans-serif;
-  font-size: 3em;
+  font-size: 2em;
   font-weight: 600;
 }
 
@@ -124,9 +124,14 @@ main p {
   margin: 1.5rem;
 }
 
-.column {
+.column-3 {
   float: left;
   width: 33.33%;
+}
+
+.column-2 {
+  float: left;
+  width: 50%;
 }
 
 .row:after {
