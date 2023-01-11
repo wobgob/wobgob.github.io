@@ -92,15 +92,15 @@
   color: #fafafa;
 }
 
-.wrapper .tutorials:hover,
-.wrapper .tutorials:active {
+.wrapper .hearthside:hover,
+.wrapper .hearthside:active {
   color: #c97a7e;
 }
 
-.wrapper .tutorials:hover .tooltip,
-.wrapper .tutorials:hover .tooltip::before,
-.wrapper .tutorials:active .tooltip,
-.wrapper .tutorials:active .tooltip::before {
+.wrapper .hearthside:hover .tooltip,
+.wrapper .hearthside:hover .tooltip::before,
+.wrapper .hearthside:active .tooltip,
+.wrapper .hearthside:active .tooltip::before {
   background: #c97a7e;
   color: #fafafa;
 }
@@ -115,6 +115,19 @@
 .wrapper .discord:active .tooltip,
 .wrapper .discord:active .tooltip::before {
   background: #5865f2;
+  color: #fafafa;
+}
+
+.wrapper .youtube:hover,
+.wrapper .youtube:active {
+  color: #fd3333;
+}
+
+.wrapper .youtube:hover .tooltip,
+.wrapper .youtube:hover .tooltip::before,
+.wrapper .youtube:active .tooltip,
+.wrapper .youtube:active .tooltip::before {
+  background: #fd3333;
   color: #fafafa;
 }
 
