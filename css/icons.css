@@ -3,6 +3,26 @@
   list-style: none;
 }
 
+.wrapper a:link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrapper a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrapper a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrapper a:active {
+  color: inherit;
+  text-decoration: none;
+}
+
 .wrapper .icon {
   position: relative;
   background: transparent;
@@ -45,7 +65,8 @@
   transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.wrapper .icon:hover .tooltip {
+.wrapper .icon:hover .tooltip,
+.wrapper .icon:active .tooltip {
   top: -45px;
   opacity: 1;
   visibility: visible;
@@ -53,36 +74,72 @@
 }
 
 .wrapper .icon:hover span,
-.wrapper .icon:hover .tooltip {
+.wrapper .icon:hover .tooltip,
+.wrapper .icon:active .tooltip {
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
 }
 
-.wrapper .liberapay:hover {
-  color: #F6C915;
+.wrapper .home:hover,
+.wrapper .home:active {
+  color: #c97a7e;
 }
 
-.wrapper .liberapay:hover .tooltip,
-.wrapper .liberapay:hover .tooltip::before {
-  background: #F6C915;
+.wrapper .home:hover .tooltip,
+.wrapper .home:hover .tooltip::before,
+.wrapper .home:active .tooltip,
+.wrapper .home:active .tooltip::before {
+  background: #c97a7e;
   color: #fafafa;
 }
 
-.wrapper .github:hover {
+.wrapper .tutorials:hover,
+.wrapper .tutorials:active {
+  color: #c97a7e;
+}
+
+.wrapper .tutorials:hover .tooltip,
+.wrapper .tutorials:hover .tooltip::before,
+.wrapper .tutorials:active .tooltip,
+.wrapper .tutorials:active .tooltip::before {
+  background: #c97a7e;
+  color: #fafafa;
+}
+
+.wrapper .discord:hover,
+.wrapper .discord:active {
+  color: #5865f2;
+}
+
+.wrapper .discord:hover .tooltip,
+.wrapper .discord:hover .tooltip::before,
+.wrapper .discord:active .tooltip,
+.wrapper .discord:active .tooltip::before {
+  background: #5865f2;
+  color: #fafafa;
+}
+
+.wrapper .docker:hover,
+.wrapper .docker:active {
+  color: #2497ed;
+}
+
+.wrapper .docker:hover .tooltip,
+.wrapper .docker:hover .tooltip::before,
+.wrapper .docker:active .tooltip,
+.wrapper .docker:active .tooltip::before {
+  background: #2497ed;
+  color: #fafafa;
+}
+
+.wrapper .github:hover,
+.wrapper .github:active {
   color: #6c757d;
 }
 
 .wrapper .github:hover .tooltip,
-.wrapper .github:hover .tooltip::before {
+.wrapper .github:hover .tooltip::before,
+.wrapper .github:active .tooltip,
+.wrapper .github:active .tooltip::before {
   background: #6c757d;
-  color: #fafafa;
-}
-
-.wrapper .youtube:hover {
-  color: #CD201F;
-}
-
-.wrapper .youtube:hover .tooltip,
-.wrapper .youtube:hover .tooltip::before {
-  background: #CD201F;
   color: #fafafa;
 }
