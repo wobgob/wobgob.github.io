@@ -26,14 +26,135 @@
     <p class="subtitle">Wobblin' Goblin's AzerothCore for Docker Desktop</p>
 
     <section>
-      <p><em>AzerothCore for Docker Desktop</em> is a great way to start playing
-      a 3.3.5a emulator by yourself or with your friends and family. The only
-      requirement is <a href="https://www.docker.com/products/docker-desktop/">Docker
-      Desktop</a> which you'll need to have installed to follow this tutorial.</p>
+      <p><em>AzerothCore for Docker Desktop</em> is a great way to start an <a
+      target="_blank" href="https://www.azerothcore.org/">AzerothCore</a> server
+      for yourself or for your family and friends. The only requirement is
+      Docker Desktop<label for="sn-docker-desktop" class="margin-toggle
+      sidenote-number"></label><input type="checkbox" id="sn-docker-desktop"
+      class="margin-toggle"/><span class="sidenote">Docker is a platform for
+      helping people build, share and run applications. Docker Desktop is a
+      graphical application for building and sharing applications and services
+      on the Docker platform.</span> which we will install as part of the
+      tutorial.</p>
 
-      <p>The binary comes with opinionated defaults to allow for a good single
-      player or small group experience. However, the binary can be compiled from
-      source to create a completely custom experience.</p>
+      <p>Minimal technical expertise is required for this tutorial outside
+      reading some instructions and some copying and pasting. We'll mostly be
+      relying on Docker Desktop and in-game commands to run our server so little
+      command line knowledge is necessary.</p>
+
+      <p><code>wobgob/azerothcore</code> is a Docker image<label
+      for="sn-docker-images" class="margin-toggle
+      sidenote-number"></label><input type="checkbox" id="sn-docker-images"
+      class="margin-toggle"/><span class="sidenote">A Docker image is a file
+      used to execute code in a Docker container. A Docker container is a
+      runnable instance of an image.</span> provided by Wobblin' Goblin with
+      opinionated defaults to allow for a good single player or small group
+      experience. At a later date instructions will be provided for compiling
+      the images from source code to create custom experiences.</p>
+    </section>
+
+    <section>
+      <h2 id="prerequisites">Prerequisites</h2>
+      <p>You'll need Docker Desktop to get started. You can find installation
+      instructions for <a target="_blank"
+      href="https://docs.docker.com/desktop/install/windows-install/">Windows</a><label
+      for="sn-windows-install" class="margin-toggle
+      sidenote-number"></label><input type="checkbox" id="sn-windows-install"
+      class="margin-toggle"/><span class="sidenote">On Windows you'll want to
+      use Windows Subsytem for Linux as Docker's backend. You can learn to <a
+      target="_blank"
+      href="https://learn.microsoft.com/en-us/windows/wsl/install">Install
+      Windows Subsystem for Linux</a> on Microsoft's website.</span>, <a
+      target="_blank"
+      href="https://docs.docker.com/desktop/install/mac-install/">Mac</a>, and
+      <a target="_blank"
+      href="https://docs.docker.com/desktop/install/linux-install/">Linux</a> on
+      Docker's website. This is the hardest part of the tutorial so read the
+      installation instructions carefully and if you run into any problems don't
+      be afraid to <a target="_blank" href="https://discord.wobgob.org">ask the
+      community for help</a>.</p>
+    </section>
+
+    <section>
+      <h2 id="installation">Installation</h2>
+      <p>Once you have Docker Desktop installing the server is done in three easy steps.</p>
+      <ol>
+        <li>Pull or run <code>wobgob/azerothcore</code> from Docker Hub</li>
+        <li>Enter the settings required to run <code>wobgob/azerothcore</code></li>
+        <li>Wait for the server to initialize before logging in with your 3.3.5a client</li>
+      </ol>
+      <ol>
+        <li>
+          <h3 id="installation--run-image">Run Image</h3>
+          <p>In Docker Desktop go to the search bar (<code>Ctrl+K</code>) and
+          search for <code>wobgob/azerothcore</code>. Once you've found the
+          image you'll want to start with the <code>latest</code> tag and then
+          hit <em>Run</em> which will prompt you for more input.</p>
+        </li>
+        <li>
+          <h3 id="installation--enter-settings">Enter Settings</h3>
+          <p>Open <em>Optional settings</em> and make sure your settings
+          match the below image then hit <em>Run</em>.</p>
+          <img src="/img/optional-settings.png" />
+          <p>In general,</p>
+          <ol>
+            <li>The container name can be anything. We've chosen to go with a
+            randomly generated name.</li>
+            <li>
+              <p>Host ports should match container ports.</p>
+
+              <p><strong>Warning!</strong> Exposing port <code>3306</code> can
+              be a security vulnerability as anyone with access to that port can
+              access your database.</p>
+            </li>
+            <li>
+              <p>The host path can be anything. We've chosen to go with a 
+              volume<label for="sn-named-volume" class="margin-toggle
+              sidenote-number"></label><input type="checkbox"
+              id="sn-named-volume" class="margin-toggle"/><span
+              class="sidenote">Volumes are the preferred mechanism for
+              persisting data generated by and used by Docker containers.</span>
+              named after the container path.</p>
+
+              <p><strong>Warning!</strong> Do not delete your volume in Docker
+              Desktop without backing it up or you'll lose all your data.</p>
+            </li>
+            <li>The container path must be <code>/var/lib/mysql</code></li>
+          </ol>
+        </li>
+        <li>
+          <h3 id="installation--login">Login</h3>
+          <p>You'll be taken to the server's logs where you'll need to wait for
+          the server to initialize before you can login. This can take a few
+          minutes.</p>
+
+          <p>Set the realm list of your 3.3.5a client to <code>127.0.0.1</code>
+          then use the username <code>acore</code> and password
+          <code>acore</code> to log into the console account.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2 id="setup">Setup</h2>
+      <p>Create a game master character with a name of your choice. This will be
+      the character you manage the server with.</p>
+
+      <p>It's recommended you change the password of this account if you're
+      playing with others. To change the password enter the following command
+      into chat</p>
+
+      <pre><code>.account password $old_password $new_password $new_password</code></pre>
+
+      <p>Note the period (<code>.</code>) before the command.</p>
+
+      <p>It's recommended that you use a separate player account for playing by
+      yourself or with others. To create another account enter the following
+      command into chat</p>
+
+      <pre><code>.account create $account $password</code></pre>
+
+      <p>You can now log into your player account and begin playing!</p>
     </section>
   </article>
 </body>
