@@ -34,13 +34,12 @@
       class="margin-toggle"/><span class="sidenote">Docker is a platform for
       helping people build, share and run applications. Docker Desktop is a
       graphical application for building and sharing applications and services
-      on the Docker platform.</span> which we will install as part of the
-      tutorial.</p>
+      on the Docker platform.</span> which you will need to install to follow
+      the tutorial.</p>
 
-      <p>Minimal technical expertise is required for this tutorial outside
+      <p>Minimal technical expertise is required for this tutorial outside of
       reading some instructions and some copying and pasting. We'll mostly be
-      relying on Docker Desktop and in-game commands to run our server so little
-      command line knowledge is necessary.</p>
+      relying on Docker Desktop and in-game commands to run our server.</p>
 
       <p><code>wobgob/azerothcore</code> is a Docker image<label
       for="sn-docker-images" class="margin-toggle
@@ -49,8 +48,7 @@
       used to execute code in a Docker container. A Docker container is a
       runnable instance of an image.</span> provided by Wobblin' Goblin with
       opinionated defaults to allow for a good single player or small group
-      experience. At a later date instructions will be provided for compiling
-      the images from source code to create custom experiences.</p>
+      experience.</p>
     </section>
 
     <section>
@@ -61,8 +59,8 @@
       for="sn-windows-install" class="margin-toggle
       sidenote-number"></label><input type="checkbox" id="sn-windows-install"
       class="margin-toggle"/><span class="sidenote">On Windows you'll want to
-      use Windows Subsytem for Linux as Docker's backend. You can learn to <a
-      target="_blank"
+      use Windows Subsytem for Linux as Docker's backend. You can learn how to
+      <a target="_blank"
       href="https://learn.microsoft.com/en-us/windows/wsl/install">Install
       Windows Subsystem for Linux</a> on Microsoft's website.</span>, <a
       target="_blank"
@@ -93,15 +91,15 @@
         </li>
         <li>
           <h3 id="installation--enter-settings">Enter Settings</h3>
-          <p>Open <em>Optional settings</em> and make sure your settings
-          match the below image then hit <em>Run</em>.</p>
-          <img src="/img/optional-settings.png" />
-          <p>In general,</p>
+          <p>Open <em>Optional settings</em> and make sure your settings match
+          the below image then hit <em>Run</em>. Each setting is explained
+          below.</p>
+          <img src="/img/optional-settings.png">
           <ol>
             <li>The container name can be anything. We've chosen to go with a
             randomly generated name.</li>
             <li>
-              <p>Host ports should match container ports.</p>
+              <p>Host ports should match container ports</p>
 
               <p><strong>Warning!</strong> Exposing port <code>3306</code> can
               be a security vulnerability as anyone with access to that port can
@@ -125,8 +123,8 @@
         <li>
           <h3 id="installation--login">Login</h3>
           <p>You'll be taken to the server's logs where you'll need to wait for
-          the server to initialize before you can login. This can take a few
-          minutes.</p>
+          the server to initialize before you can login. First-time setup can
+          take a few minutes.</p>
 
           <p>Set the realm list of your 3.3.5a client to <code>127.0.0.1</code>
           then use the username <code>acore</code> and password
@@ -137,8 +135,8 @@
 
     <section>
       <h2 id="setup">Setup</h2>
-      <p>Once you're logged into the console account create a game master
-      character with a name of your choice. This will be the character you
+      <p>Once you're logged into the console account create a game master (GM)
+      character with a name of your choice. This will be the character you'll
       manage the server with.</p>
 
       <p>It's recommended you change the password of the console account if
@@ -147,12 +145,17 @@
       sidenote-number"></label><input type="checkbox" id="sn-gm-commands"
       class="margin-toggle"/><span class="sidenote">See AzerothCore's website
       for a <a target="_blank"
-      href="https://www.azerothcore.org/wiki/gm-commands">list of game master
+      href="https://www.azerothcore.org/wiki/gm-commands">list of GM
       commands</a>.</span> into chat</p>
 
       <pre><code>.account password $old_password $new_password $new_password</code></pre>
 
-      <p>Note the dot (<code>.</code>) before the command.</p>
+      <p>Words prefixed with a dollar sign (<code>$</code>) are variables and
+      you should replace them with your old password (<code>acore</code> by
+      default) and new password respectively.</p>
+
+      <p><strong>Warning!</strong> Remember this password as it is unable to be
+      recovered easily.</p>
 
       <p>It's recommended that you use a separate player account for playing by
       yourself or with others. To create another account enter the following
@@ -161,6 +164,40 @@
       <pre><code>.account create $account $password</code></pre>
 
       <p>You can now log into your player account and begin playing!</p>
+    </section>
+
+    <section>
+      <h2 id="faq">FAQ</h2>
+      <p><em>How do I change the default configuration?</em> You'll need to
+      compile a fresh image from source code to modify the server and change the
+      default configuration.<label for="sn-gm-commands" class="margin-toggle
+      sidenote-number"></label><input type="checkbox" id="sn-gm-commands"
+      class="margin-toggle"/><span class="sidenote">If
+      <code>wobgob/azerothcore</code> is too limiting you can follow the <a
+      target="_blank"
+      href="https://www.azerothcore.org/wiki/installation">AzerothCore
+      Installation Guide</a>. For Docker (not Docker Desktop) AzerothCore offers
+      <a href="https://www.azerothcore.org/acore-docker/">ACore docker
+      compose</a>.</span> For now you'll have to <a target="_blank"
+      href="https://discord.wobgob.org">ask the community</a> how to compile
+      from source code.</p>
+
+      <p><em>How do I play with others?</em> Unless you port forward or use a
+      tunneling service you'll only be able to play with others in your local
+      area network.</p>
+
+      <p><em>How do I backup the database?</em> To backup the database you will
+      need to use a database tool to dump its contents. To connect to the
+      database the server host should be <code>127.0.0.1</code>, the port is
+      <code>3306</code>, the username is <code>acore</code> and the password is
+      <code>acore</code>.</p>
+
+      <p><strong>Warning!</strong> Do not expose port <code>3306</code> to the
+      internet.</p>
+
+      <p><em>How do I contribute?</em> The best way to contribute is to <a
+      target="_blank" href="https://discord.wobgob.org">join the community</a>
+      to help others and to share and discuss your creations.</p>
     </section>
   </article>
 </body>
