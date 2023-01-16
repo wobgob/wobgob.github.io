@@ -36,19 +36,22 @@
       graphical application for building and sharing applications and services
       on the Docker platform.</span> which you will need to install to follow
       the tutorial.</p>
+    </section>
 
-      <p>Minimal technical expertise is required for this tutorial outside of
-      reading some instructions and some copying and pasting. We'll mostly be
-      relying on Docker Desktop and in-game commands to run our server.</p>
+    <section>
+      <h2 id="target-audience">Target Audience</h2>
+      <p>We assume that you are familiar with playing on a private server and
+      have a 3.3.5a client. We'll be relying on Docker Desktop and in-game
+      commands to run our server so minimal technical expertise is required.</p>
 
-      <p><code>wobgob/azerothcore</code> is a Docker image<label
-      for="sn-docker-images" class="margin-toggle
+      <p>The Docker images<label for="sn-docker-images" class="margin-toggle
       sidenote-number"></label><input type="checkbox" id="sn-docker-images"
       class="margin-toggle"/><span class="sidenote">A Docker image is a file
       used to execute code in a Docker container. A Docker container is a
-      runnable instance of an image.</span> provided by Wobblin' Goblin with
+      runnable instance of an image.</span> provided by Wobblin' Goblin have
       opinionated defaults to allow for a good single player or small group
-      experience.</p>
+      experience. Think of our Docker images as a repack that is easily
+      updated.</p>
     </section>
 
     <section>
@@ -77,23 +80,18 @@
       <h2 id="installation">Installation</h2>
       <p>Once you have Docker Desktop installing the server is done in three easy steps.</p>
       <ol>
-        <li>Pull or run <code>wobgob/azerothcore</code> from Docker Hub</li>
-        <li>Enter the settings required to run <code>wobgob/azerothcore</code></li>
-        <li>Wait for the server to initialize before logging in with your 3.3.5a client</li>
-      </ol>
-      <ol>
         <li>
           <h3 id="installation--run-image">Run Image</h3>
-          <p>In Docker Desktop go to the search bar (<code>Ctrl+K</code>) and
-          search for <code>wobgob/azerothcore</code>. Once you've found the
-          image you'll want to start with the <code>latest</code> tag and then
-          hit <em>Run</em> which will prompt you for more input.</p>
+          <p>In Docker Desktop go to the search bar in the top right
+          (<code>Ctrl+K</code>) and search for <code>wobgob/azerothcore</code>.
+          Once you've found the image you'll want to hit <em>Run</em> which will
+          bring up a prompt. Do not hit <em>Run</em> again yet.</p>
         </li>
         <li>
           <h3 id="installation--enter-settings">Enter Settings</h3>
-          <p>Open <em>Optional settings</em> and make sure your settings match
-          the below image then hit <em>Run</em>. Each setting is explained
-          below.</p>
+          <p>In the prompt open <em>Optional settings</em> and make sure your
+          settings match the below image then hit <em>Run</em>. Each setting is
+          explained below.</p>
           <img src="/img/optional-settings.png">
           <ol>
             <li>The container name can be anything. We've chosen to go with a
@@ -103,7 +101,7 @@
 
               <p><strong>Warning!</strong> Exposing port <code>3306</code> can
               be a security vulnerability as anyone with access to that port can
-              access your database.</p>
+              access your database. Leave this blank if you're unsure.</p>
             </li>
             <li>
               <p>The host path can be anything. We've chosen to go with a 
@@ -139,8 +137,8 @@
       character with a name of your choice. This will be the character you'll
       manage the server with.</p>
 
-      <p>It's recommended you change the password of the console account if
-      you're playing with others. To change the password enter the following
+      <p>It's recommended that you use a separate player account for playing by
+      yourself or with others. To create another account enter the following
       command<label for="sn-gm-commands" class="margin-toggle
       sidenote-number"></label><input type="checkbox" id="sn-gm-commands"
       class="margin-toggle"/><span class="sidenote">See AzerothCore's website
@@ -148,52 +146,40 @@
       href="https://www.azerothcore.org/wiki/gm-commands">list of GM
       commands</a>.</span> into chat</p>
 
-      <pre><code>.account password $old_password $new_password $new_password</code></pre>
-
-      <p>Words prefixed with a dollar sign (<code>$</code>) are variables and
-      you should replace them with your old password (<code>acore</code> by
-      default) and new password respectively.</p>
-
-      <p><strong>Warning!</strong> Remember this password as it is unable to be
-      recovered easily.</p>
-
-      <p>It's recommended that you use a separate player account for playing by
-      yourself or with others. To create another account enter the following
-      command into chat</p>
-
       <pre><code>.account create $account $password</code></pre>
+
+      <p>Where you should replace <code>$account</code> with your account name
+      and <code>$password</code> with your account's password.</p>
 
       <p>You can now log into your player account and begin playing!</p>
     </section>
 
     <section>
       <h2 id="faq">FAQ</h2>
-      <p><em>How do I change the default configuration?</em> You'll need to
-      compile a fresh image from source code to modify the server and change the
-      default configuration.<label for="sn-gm-commands" class="margin-toggle
-      sidenote-number"></label><input type="checkbox" id="sn-gm-commands"
-      class="margin-toggle"/><span class="sidenote">If
-      <code>wobgob/azerothcore</code> is too limiting you can follow the <a
-      target="_blank"
-      href="https://www.azerothcore.org/wiki/installation">AzerothCore
-      Installation Guide</a>. For Docker (not Docker Desktop) AzerothCore offers
-      <a href="https://www.azerothcore.org/acore-docker/">ACore docker
-      compose</a>.</span> For now you'll have to <a target="_blank"
-      href="https://discord.wobgob.org">ask the community</a> how to compile
-      from source code.</p>
+      <p><em>How do I change the default configuration?</em> You'll need to get
+      a copy of the source code from <a target="_blank"
+      href="https://github.com/wobgob/azerothcore/">our GitHub</a> to create a
+      new image. You'll want to download the <code>hearthside-stories</code>
+      branch where you can find configuration files in <code>etc</code> and you
+      can place new modules in <code>modules</code>. Finally run the following
+      command from the root of your project</p>
+
+      <pre>
+        <code>docker build -t azerothcore .</code>
+      </pre>
+
+      <p>To create a new image called <code>azerothcore</code> which you can
+      then run.</p>
 
       <p><em>How do I play with others?</em> Unless you port forward or use a
       tunneling service you'll only be able to play with others in your local
       area network.</p>
 
-      <p><em>How do I backup the database?</em> To backup the database you will
-      need to use a database tool to dump its contents. To connect to the
-      database the server host should be <code>127.0.0.1</code>, the port is
-      <code>3306</code>, the username is <code>acore</code> and the password is
-      <code>acore</code>.</p>
-
-      <p><strong>Warning!</strong> Do not expose port <code>3306</code> to the
-      internet.</p>
+      <p><em>How do I backup my data?</em> To backup your data you will need to
+      expose port <code>3306</code> and use a database tool to dump its
+      contents. To connect to the database the server host should be
+      <code>127.0.0.1</code>, the port is <code>3306</code>, the username is
+      <code>acore</code> and the password is <code>acore</code>.</p>
 
       <p><em>How do I contribute?</em> The best way to contribute is to <a
       target="_blank" href="https://discord.wobgob.org">join the community</a>
