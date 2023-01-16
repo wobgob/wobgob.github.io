@@ -26,59 +26,38 @@
     <p class="subtitle">Wobblin' Goblin's AzerothCore for Docker Desktop</p>
 
     <section>
-      <p><em>AzerothCore for Docker Desktop</em> is a great way to start an <a
-      target="_blank" href="https://www.azerothcore.org/">AzerothCore</a> server
-      for yourself or for your family and friends. The only requirement is
-      Docker Desktop<label for="sn-docker-desktop" class="margin-toggle
-      sidenote-number"></label><input type="checkbox" id="sn-docker-desktop"
-      class="margin-toggle"/><span class="sidenote">Docker is a platform for
-      helping people build, share and run applications. Docker Desktop is a
-      graphical application for building and sharing applications and services
-      on the Docker platform.</span> which you will need to install to follow
-      the tutorial.</p>
-    </section>
+      <p><em>AzerothCore for Docker Desktop</em><label for="sn-docker-desktop"
+      class="margin-toggle sidenote-number"></label><input type="checkbox"
+      id="sn-docker-desktop" class="margin-toggle"/><span
+      class="sidenote">Docker is a platform for helping people build, share and
+      run applications. Docker Desktop is a graphical application for building
+      and sharing applications and services on the Docker platform.</span> is a
+      great way to start an <a target="_blank"
+      href="https://www.azerothcore.org/">AzerothCore</a> server for yourself or
+      for your family and friends.</p>
 
-    <section>
-      <h2 id="target-audience">Target Audience</h2>
       <p>We assume that you are familiar with playing on a private server and
       have a 3.3.5a client. We'll be relying on Docker Desktop and in-game
       commands to run our server so minimal technical expertise is required.</p>
 
-      <p>The Docker images<label for="sn-docker-images" class="margin-toggle
+      <p>The Docker image<label for="sn-docker-images" class="margin-toggle
       sidenote-number"></label><input type="checkbox" id="sn-docker-images"
       class="margin-toggle"/><span class="sidenote">A Docker image is a file
       used to execute code in a Docker container. A Docker container is a
-      runnable instance of an image.</span> provided by Wobblin' Goblin have
-      opinionated defaults to allow for a good single player or small group
-      experience. Think of our Docker images as a repack that is easily
-      updated.</p>
-    </section>
-
-    <section>
-      <h2 id="prerequisites">Prerequisites</h2>
-      <p>You'll need Docker Desktop to get started. You can find installation
-      instructions for <a target="_blank"
-      href="https://docs.docker.com/desktop/install/windows-install/">Windows</a><label
-      for="sn-windows-install" class="margin-toggle
-      sidenote-number"></label><input type="checkbox" id="sn-windows-install"
-      class="margin-toggle"/><span class="sidenote">On Windows you'll want to
-      use Windows Subsytem for Linux as Docker's backend. You can learn how to
-      <a target="_blank"
-      href="https://learn.microsoft.com/en-us/windows/wsl/install">Install
-      Windows Subsystem for Linux</a> on Microsoft's website.</span>, <a
-      target="_blank"
-      href="https://docs.docker.com/desktop/install/mac-install/">Mac</a>, and
-      <a target="_blank"
-      href="https://docs.docker.com/desktop/install/linux-install/">Linux</a> on
-      Docker's website. This is the hardest part of the tutorial so read the
-      installation instructions carefully and if you run into any problems don't
-      be afraid to <a target="_blank" href="https://discord.wobgob.org">ask the
-      community for help</a>.</p>
+      runnable instance of an image.</span> provided by Wobblin' Goblin has
+      bots, scaling and individual progression to allow for a good single player
+      or small group experience. Think of our Docker image as a repack that is
+      easily updated and that you can compile yourself to create your own
+      experience.</p>
     </section>
 
     <section>
       <h2 id="installation">Installation</h2>
-      <p>Once you have Docker Desktop installing the server is done in three easy steps.</p>
+      <p>You'll need Docker Desktop to get started. <a target="_blank"
+      href="https://www.docker.com/products/docker-desktop/">Download Docker
+      Desktop</a> and install it. Once you have Docker Desktop installing the
+      server is done in three easy steps.</p>
+
       <ol>
         <li>
           <h3 id="installation--run-image">Run Image</h3>
@@ -87,37 +66,15 @@
           Once you've found the image you'll want to hit <em>Run</em> which will
           bring up a prompt. Do not hit <em>Run</em> again yet.</p>
         </li>
+
         <li>
           <h3 id="installation--enter-settings">Enter Settings</h3>
           <p>In the prompt open <em>Optional settings</em> and make sure your
-          settings match the below image then hit <em>Run</em>. Each setting is
-          explained below.</p>
+          settings match the below image then hit <em>Run</em>.</p>
+
           <img src="/img/optional-settings.png">
-          <ol>
-            <li>The container name can be anything. We've chosen to go with a
-            randomly generated name.</li>
-            <li>
-              <p>Host ports should match container ports</p>
-
-              <p><strong>Warning!</strong> Exposing port <code>3306</code> can
-              be a security vulnerability as anyone with access to that port can
-              access your database. Leave this blank if you're unsure.</p>
-            </li>
-            <li>
-              <p>The host path can be anything. We've chosen to go with a 
-              volume<label for="sn-named-volume" class="margin-toggle
-              sidenote-number"></label><input type="checkbox"
-              id="sn-named-volume" class="margin-toggle"/><span
-              class="sidenote">Volumes are the preferred mechanism for
-              persisting data generated by and used by Docker containers.</span>
-              named after the container path.</p>
-
-              <p><strong>Warning!</strong> Do not delete your volume in Docker
-              Desktop without backing it up or you'll lose all your data.</p>
-            </li>
-            <li>The container path must be <code>/var/lib/mysql</code></li>
-          </ol>
         </li>
+
         <li>
           <h3 id="installation--login">Login</h3>
           <p>You'll be taken to the server's logs where you'll need to wait for
@@ -156,20 +113,9 @@
 
     <section>
       <h2 id="faq">FAQ</h2>
-      <p><em>How do I change the default configuration?</em> You'll need to get
-      a copy of the source code from <a target="_blank"
-      href="https://github.com/wobgob/azerothcore/">our GitHub</a> to create a
-      new image. You'll want to download the <code>hearthside-stories</code>
-      branch where you can find configuration files in <code>etc</code> and you
-      can place new modules in <code>modules</code>. Finally run the following
-      command from the root of your project</p>
-
-      <pre>
-        <code>docker build -t azerothcore .</code>
-      </pre>
-
-      <p>To create a new image called <code>azerothcore</code> which you can
-      then run.</p>
+      <p><em>How do I use the bots?</em> Refer to the <a target="_blank"
+      href="https://github.com/trickerer/Trinity-Bots#readme">NPCBots README</a>
+      to learn how to use the bots.</p>
 
       <p><em>How do I play with others?</em> Unless you port forward or use a
       tunneling service you'll only be able to play with others in your local
@@ -184,6 +130,67 @@
       <p><em>How do I contribute?</em> The best way to contribute is to <a
       target="_blank" href="https://discord.wobgob.org">join the community</a>
       to help others and to share and discuss your creations.</p>
+    </section>
+
+    <section>
+      <h2 id="appendix-compiling">Appendix: Compiling</h2>
+      <p>Compiling yourself is a great way to create your own custom AzerothCore
+      experience. To start compiling you'll need to complete the following
+      steps.</p>
+
+      <ol>
+        <li><a target="_blank" href="https://github.com/join">Join Github</a></li>
+
+        <li>Download and install <a target="_blank"
+        href="https://desktop.github.com/">GitHub Desktop</a><label
+        for="sn-github-desktop" class="margin-toggle
+        sidenote-number"></label><input type="checkbox" id="sn-github-desktop"
+        class="margin-toggle"/><span class="sidenote">Linux users can find
+        releases at <a target="_blank"
+        href="https://github.com/shiftkey/desktop/releases">shiftkey/desktop</a></span>
+        and <a target="_blank" href="https://code.visualstudio.com/">Visual
+        Studio Code</a></li>
+
+        <li>Open GitHub Desktop and in the <strong>File </strong> menu click
+        <strong>Clone Repository...</strong></li>
+        <img src="/img/clone-file-menu.png">
+
+        <li>Click <strong>URL</strong> and enter
+        <code>wobgob/azerothcore</code>. Click <strong>Choose...</strong> and
+        navigate to a local path where you want to clone the repository then
+        click <strong>Clone</strong>.</li>
+        <img src="/img/clone-repository.png">
+
+        <li>Click <strong>For my own purposes</strong> then click
+        <strong>Continue</strong></li>
+        <img src="/img/windows-fork-own-purposes.png">
+
+        <li>After cloning, in the <strong>Repository</strong> menu click
+        <strong>Open in Visual Studio Code</strong></li>
+
+        <li>In Visual Studio Code you can edit the configuration files in the
+        <code>etc</code> folder</li>
+        <img src="/img/visual-studio-code.png">
+
+        <li>After you have saved your edits, in the <strong>Terminal</strong>
+        menu click <strong>New Terminal</strong></li>
+
+        <li>In the Terminal enter <code>docker build -t azerothcore .</code> to
+        compile your image</li>
+
+        <li>Compilation can take a while but once it's finished you can find
+        your new image called <code>azerothcore</code> in Docker Desktop to
+        run</li>
+        <img src="/img/docker-desktop-images.png">
+      </ol>
+
+      <p>This is just a bare minimum example of changing configuration files.
+      You can also add modules from the <a target="_blank"
+      href="https://www.azerothcore.org/catalogue.html#/">AzerothCore
+      Catalogue</a> to create your own custom AzerothCore experience. For
+      further assistance with creating your own custom AzerothCore experience <a
+      target="_blank" href="https://discord.wobgob.org">join the
+      community</a>.</p>
     </section>
   </article>
 </body>
