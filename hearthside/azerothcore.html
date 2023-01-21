@@ -45,10 +45,9 @@
       class="margin-toggle"/><span class="sidenote">A Docker image is a file
       used to execute code in a Docker container. A Docker container is a
       runnable instance of an image.</span> provided by Wobblin' Goblin has
-      bots, scaling and individual progression to allow for a good single player
-      or small group experience. Think of our Docker image as a repack that is
-      easily updated and that you can compile yourself to create your own
-      experience.</p>
+      cross faction, bots and scaling to allow for a good single player or small
+      group experience. Think of our Docker image as a repack that is easily
+      updated.</p>
     </section>
 
     <section>
@@ -61,10 +60,10 @@
       <ol>
         <li>
           <h3 id="installation--run-image">Run Image</h3>
-          <p>In Docker Desktop go to the search bar in the top right
-          (<code>Ctrl+K</code>) and search for <code>wobgob/azerothcore</code>.
-          Once you've found the image you'll want to hit <em>Run</em> which will
-          bring up a prompt. Do not hit <em>Run</em> again yet.</p>
+          <p>In Docker Desktop go to the search bar (<code>Ctrl+K</code>) and
+          search for <code>wobgob/azerothcore</code>.  Once you've found the
+          image you'll want to hit <em>Run</em> which will bring up a prompt. Do
+          not hit <em>Run</em> again yet.</p>
         </li>
 
         <li>
@@ -83,16 +82,16 @@
 
           <p>Set the realm list of your 3.3.5a client to <code>127.0.0.1</code>
           then use the username <code>acore</code> and password
-          <code>acore</code> to log into the console account.</p>
+          <code>acore</code> to log into the administrator account.</p>
         </li>
       </ol>
     </section>
 
     <section>
       <h2 id="setup">Setup</h2>
-      <p>Once you're logged into the console account create a game master (GM)
-      character with a name of your choice. This will be the character you'll
-      manage the server with.</p>
+      <p>Once you're logged into the administrator account create a game master
+      (GM) character with a name of your choice. This will be the character
+      you'll manage the server with.</p>
 
       <p>It's recommended that you use a separate player account for playing by
       yourself or with others. To create another account enter the following
@@ -121,76 +120,22 @@
       tunneling service you'll only be able to play with others in your local
       area network.</p>
 
-      <p><em>How do I backup my data?</em> To backup your data you will need to
-      expose port <code>3306</code> and use a database tool to dump its
-      contents. To connect to the database the server host should be
-      <code>127.0.0.1</code>, the port is <code>3306</code>, the username is
-      <code>acore</code> and the password is <code>acore</code>.</p>
+      <p><em>How do I change the configuration?</em> You'll need to download the
+      code from <a target="_blank"
+      href="https://github.com/wobgob/azerothcore/"><code>wobgob/azerothcore</code></a>.
+      You can then edit the configuration in <code>etc</code>. When running your
+      container create another volume and set the host path to the
+      <code>etc</code> directory and the container path should be
+      <code>/azerothcore/etc</code>.</p>
+
+      <p><em>How do I backup my data?</em> You'll need to use a database tool to
+      dump the database's contents. To connect to the database the server host
+      should be <code>127.0.0.1</code>, the port is <code>3306</code>, the
+      username is <code>acore</code> and the password is <code>acore</code>.</p>
 
       <p><em>How do I contribute?</em> The best way to contribute is to <a
       target="_blank" href="https://discord.wobgob.org">join the community</a>
       to help others and to share and discuss your creations.</p>
-    </section>
-
-    <section>
-      <h2 id="appendix-compiling">Appendix: Compiling</h2>
-      <p>Compiling yourself is a great way to create your own custom AzerothCore
-      experience. To start compiling you'll need to complete the following
-      steps.</p>
-
-      <ol>
-        <li><a target="_blank" href="https://github.com/join">Join Github</a></li>
-
-        <li>Download and install <a target="_blank"
-        href="https://desktop.github.com/">GitHub Desktop</a><label
-        for="sn-github-desktop" class="margin-toggle
-        sidenote-number"></label><input type="checkbox" id="sn-github-desktop"
-        class="margin-toggle"/><span class="sidenote">Linux users can find
-        releases at <a target="_blank"
-        href="https://github.com/shiftkey/desktop/releases">shiftkey/desktop</a></span>
-        and <a target="_blank" href="https://code.visualstudio.com/">Visual
-        Studio Code</a></li>
-
-        <li>Open GitHub Desktop and in the <strong>File </strong> menu click
-        <strong>Clone Repository...</strong></li>
-        <img src="/img/clone-file-menu.png">
-
-        <li>Click <strong>URL</strong> and enter
-        <code>wobgob/azerothcore</code>. Click <strong>Choose...</strong> and
-        navigate to a local path where you want to clone the repository then
-        click <strong>Clone</strong>.</li>
-        <img src="/img/clone-repository.png">
-
-        <li>Click <strong>For my own purposes</strong> then click
-        <strong>Continue</strong></li>
-        <img src="/img/windows-fork-own-purposes.png">
-
-        <li>After cloning, in the <strong>Repository</strong> menu click
-        <strong>Open in Visual Studio Code</strong></li>
-
-        <li>In Visual Studio Code you can edit the configuration files in the
-        <code>etc</code> folder</li>
-        <img src="/img/visual-studio-code.png">
-
-        <li>After you have saved your edits, in the <strong>Terminal</strong>
-        menu click <strong>New Terminal</strong></li>
-
-        <li>In the Terminal enter <code>docker build -t azerothcore .</code> to
-        compile your image</li>
-
-        <li>Compilation can take a while but once it's finished you can find
-        your new image called <code>azerothcore</code> in Docker Desktop to
-        run</li>
-        <img src="/img/docker-desktop-images.png">
-      </ol>
-
-      <p>This is just a bare minimum example of changing configuration files.
-      You can also add modules from the <a target="_blank"
-      href="https://www.azerothcore.org/catalogue.html#/">AzerothCore
-      Catalogue</a> to create your own custom AzerothCore experience. For
-      further assistance with creating your own custom AzerothCore experience <a
-      target="_blank" href="https://discord.wobgob.org">join the
-      community</a>.</p>
     </section>
   </article>
 </body>
