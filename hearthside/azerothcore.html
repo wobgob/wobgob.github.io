@@ -42,12 +42,12 @@
 
       <p>The Docker image<label for="sn-docker-images" class="margin-toggle
       sidenote-number"></label><input type="checkbox" id="sn-docker-images"
-      class="margin-toggle"/><span class="sidenote">A Docker image is a file
-      used to execute code in a Docker container. A Docker container is a
-      runnable instance of an image.</span> provided by Wobblin' Goblin has
-      cross faction, bots and scaling to allow for a good single player or small
-      group experience. Think of our Docker image as a repack that is easily
-      updated.</p>
+      class="margin-toggle"/><span class="sidenote">A Docker image is like the
+      executable you download off the internet. A Docker container is like the
+      running process you get after double-clicking the executable.</span>
+      provided by Wobblin' Goblin has cross faction, bots and scaling to allow
+      for a good single player or small group experience. Think of our Docker
+      image as a repack that is easily updated.</p>
     </section>
 
     <section>
@@ -61,28 +61,30 @@
         <li>
           <h3 id="installation--run-image">Run Image</h3>
           <p>In Docker Desktop go to the search bar (<code>Ctrl+K</code>) and
-          search for <code>wobgob/azerothcore</code>.  Once you've found the
-          image you'll want to hit <em>Run</em> which will bring up a prompt. Do
-          not hit <em>Run</em> again yet.</p>
+          search for <code>wobgob/azerothcore</code> under the <em>Images</em>
+          tab. Once you've found the image you'll want to select it and then hit
+          <em>Run</em>. This will will bring up a prompt. Do not hit
+          <em>Run</em> again.</p>
         </li>
 
         <li>
           <h3 id="installation--enter-settings">Enter Settings</h3>
           <p>In the prompt open <em>Optional settings</em> and make sure your
-          settings match the below image then hit <em>Run</em>.</p>
+          settings match the below image and then hit <em>Run</em>.</p>
 
           <img src="/img/optional-settings.png">
+
+          <p>You'll be taken to the server's logs where you'll need to wait for
+          the server to initialize before you can login. First-time setup can
+          take a few minutes.</p>
         </li>
 
         <li>
           <h3 id="installation--login">Login</h3>
-          <p>You'll be taken to the server's logs where you'll need to wait for
-          the server to initialize before you can login. First-time setup can
-          take a few minutes.</p>
-
-          <p>Set the realm list of your 3.3.5a client to <code>127.0.0.1</code>
-          then use the username <code>acore</code> and password
-          <code>acore</code> to log into the administrator account.</p>
+          <p>Leave Docker Desktop and set the realm list of your 3.3.5a client
+          to <code>127.0.0.1</code>.  Open your 3.3.5a client and then use the
+          username <code>acore</code> and password <code>acore</code> to log
+          into the administrator account.</p>
         </li>
       </ol>
     </section>
@@ -112,6 +114,10 @@
 
     <section>
       <h2 id="faq">FAQ</h2>
+      <p><em>How do I get help?</em> <a target="_blank"
+      href="https://discord.wobgob.org">Join the community</a> to get help with
+      Docker Desktop or running your server.</p>
+
       <p><em>How do I use the bots?</em> Refer to the <a target="_blank"
       href="https://github.com/trickerer/Trinity-Bots#readme">NPCBots README</a>
       to learn how to use the bots.</p>
@@ -129,7 +135,7 @@
       <code>/azerothcore/etc</code>.</p>
 
       <p><em>How do I backup my data?</em> You'll need to use a database tool to
-      dump the database's contents. To connect to the database the server host
+      dump your database's contents. To connect to the database the server host
       should be <code>127.0.0.1</code>, the port is <code>3306</code>, the
       username is <code>acore</code> and the password is <code>acore</code>.</p>
 
