@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AzerothCore | Wobblin' Goblin</title>
+  <meta name="description" content="Wobblin' Goblin's AzerothCore for Docker Desktop">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#61912a">
+  <meta name="msapplication-TileColor" content="#2e4514">
+  <meta name="theme-color" content="#2e4514">
+
+  <link rel="stylesheet" href="/css/tufte.css">
+</head>
+
+<body>
+  <article>
+    <h1>AzerothCore</h1>
+    <p class="subtitle">Wobblin' Goblin's AzerothCore for Docker Desktop</p>
+
+    <section>
+      <p><em>AzerothCore for Docker Desktop</em><label for="sn-docker-desktop"
+      class="margin-toggle sidenote-number"></label><input type="checkbox"
+      id="sn-docker-desktop" class="margin-toggle"/><span
+      class="sidenote">Docker is a platform for helping people build, share and
+      run applications. Docker Desktop is a graphical application for building
+      and sharing applications and services on the Docker platform.</span> is a
+      great way to start an <a target="_blank"
+      href="https://www.azerothcore.org/">AzerothCore</a> server for yourself or
+      for your family and friends.</p>
+
+      <p>We assume that you are familiar with playing on a private server and
+      have a 3.3.5a client. We'll be relying on Docker Desktop and in-game
+      commands to run our server so minimal technical expertise is required.</p>
+
+      <p>The Docker image<label for="sn-docker-images" class="margin-toggle
+      sidenote-number"></label><input type="checkbox" id="sn-docker-images"
+      class="margin-toggle"/><span class="sidenote">A Docker image is like the
+      executable you download off the internet. A Docker container is like the
+      running process you get after double-clicking the executable.</span>
+      provided by Wobblin' Goblin has cross faction, bots and scaling to allow
+      for a good single player or small group experience. Think of our Docker
+      image as a repack that is easily updated.</p>
+    </section>
+
+    <section>
+      <h2 id="installation">Installation</h2>
+      <p>You'll need Docker Desktop to get started. <a target="_blank"
+      href="https://www.docker.com/products/docker-desktop/">Download Docker
+      Desktop</a> and install it. Once you have Docker Desktop installing the
+      server is done in three easy steps.</p>
+
+      <ol>
+        <li>
+          <h3 id="installation--run-image">Run Image</h3>
+          <p>In Docker Desktop go to the search bar (<code>Ctrl+K</code>) and
+          search for <code>wobgob/azerothcore</code> under the <em>Images</em>
+          tab. Once you've found the image you'll want to select it and then hit
+          <em>Run</em>. This will will bring up a prompt. Do not hit
+          <em>Run</em> again.</p>
+        </li>
+
+        <li>
+          <h3 id="installation--enter-settings">Enter Settings</h3>
+          <p>In the prompt open <em>Optional settings</em> and make sure your
+          settings match the below image and then hit <em>Run</em>.</p>
+
+          <img src="/img/optional-settings.png">
+
+          <p>You'll be taken to the server's logs where you'll need to wait for
+          the server to initialize before you can login. First-time setup can
+          take a few minutes.</p>
+        </li>
+
+        <li>
+          <h3 id="installation--login">Login</h3>
+          <p>Leave Docker Desktop and set the realm list of your 3.3.5a client
+          to <code>127.0.0.1</code>.  Open your 3.3.5a client and then use the
+          username <code>acore</code> and password <code>acore</code> to log
+          into the administrator account.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2 id="setup">Setup</h2>
+      <p>Once you're logged into the administrator account create a game master
+      (GM) character with a name of your choice. This will be the character
+      you'll manage the server with.</p>
+
+      <p>It's recommended that you use a separate player account for playing by
+      yourself or with others. To create another account enter the following
+      command<label for="sn-gm-commands" class="margin-toggle
+      sidenote-number"></label><input type="checkbox" id="sn-gm-commands"
+      class="margin-toggle"/><span class="sidenote">See AzerothCore's website
+      for a <a target="_blank"
+      href="https://www.azerothcore.org/wiki/gm-commands">list of GM
+      commands</a>.</span> into chat</p>
+
+      <pre><code>.account create $account $password</code></pre>
+
+      <p>Where you should replace <code>$account</code> with your account name
+      and <code>$password</code> with your account's password.</p>
+
+      <p>You can now log into your player account and begin playing!</p>
+    </section>
+
+    <section>
+      <h2 id="faq">FAQ</h2>
+      <p><em>How do I get help?</em> <a target="_blank"
+      href="https://discord.wobgob.org">Join the community</a> to get help with
+      Docker Desktop or running your server.</p>
+
+      <p><em>How do I use the bots?</em> Refer to the <a target="_blank"
+      href="https://github.com/trickerer/Trinity-Bots#readme">NPCBots README</a>
+      to learn how to use the bots.</p>
+
+      <p><em>How do I play with others?</em> Unless you port forward or use a
+      tunneling service you'll only be able to play with others in your local
+      area network.</p>
+
+      <p><em>How do I change the configuration?</em> You'll need to download the
+      code from <a target="_blank"
+      href="https://github.com/wobgob/azerothcore/"><code>wobgob/azerothcore</code></a>.
+      You can then edit the configuration in <code>etc</code>. When running your
+      container create another volume and set the host path to the
+      <code>etc</code> directory and the container path should be
+      <code>/azerothcore/etc</code>.</p>
+
+      <p><em>How do I backup my data?</em> You'll need to use a database tool to
+      dump your database's contents. To connect to the database the server host
+      should be <code>127.0.0.1</code>, the port is <code>3306</code>, the
+      username is <code>acore</code> and the password is <code>acore</code>.</p>
+
+      <p><em>How do I contribute?</em> The best way to contribute is to <a
+      target="_blank" href="https://discord.wobgob.org">join the community</a>
+      to help others and to share and discuss your creations.</p>
+    </section>
+  </article>
+</body>
+
+</html>
